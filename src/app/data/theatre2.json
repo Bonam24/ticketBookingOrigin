@@ -276,8 +276,10 @@
       "name": "Event1"
     },
     "event2": {
-      "booked": false,
-      "name": "Event2"
+      "booked": true,
+      "name": "Bonam",
+      "phone": "0748404401",
+      "email": "bonamjr24@gmail.com"
     }
   },
   {
