@@ -1,70 +1,78 @@
 "use client";
+
 import EventBooking from '../components/eventbooking';
 import EventBooking2 from '../components/eventbooking2';
-import { useRouter } from 'next/navigation';
-//const router = useRouter();
-import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Navbar from '../components/navbar';
 import Sfooter from '../components/sfooter';
 import { Typography } from '@mui/material';
+import React, { Suspense } from 'react';
 
+function BookingContent() {
+  // Use a different name for the variable to avoid naming conflict
+  const searchParams = useSearchParams();
+  const eloc = searchParams.get('eLocation');
+  const eTime = searchParams.get('eTime');
 
-
+  if (eloc === "theatre1") {
+    return (
+      <div style={{ backgroundColor: "black", minHeight: "100vh", paddingBottom: 50 }}>
+        <Navbar />
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: 'bold',
+            fontSize: '2rem',
+            textAlign: 'center',
+            color: '#ffa500',
+            marginTop: 3,
+            marginBottom: 2,
+            textTransform: 'capitalize',
+          }}
+        >
+          The event name: {searchParams.get('name')}
+        </Typography>
+        <EventBooking
+          eventType={searchParams.get('enum')}
+          eTime={eTime}
+          eventLocation={searchParams.get('eLocation')}
+          ename={searchParams.get('name')}
+        />
+      </div>
+    );
+  } else {
+    return (
+      <div style={{ backgroundColor: "black", minHeight: "100vh", paddingBottom: 50 }}>
+        <Navbar />
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: 'bold',
+            fontSize: '2rem',
+            textAlign: 'center',
+            color: '#ffa500',
+            marginTop: 3,
+            marginBottom: 2,
+            textTransform: 'capitalize',
+          }}
+        >
+          The event name: {searchParams.get('name')}
+        </Typography>
+        <EventBooking2
+          eventType={searchParams.get('enum')}
+          eTime={eTime}
+          eventLocation={searchParams.get('eLocation')}
+          ename={searchParams.get('name')}
+        />
+      </div>
+    );
+  }
+}
 
 export default function BookingPage() {
-    const usesearchParams = useSearchParams();
-    const eloc= usesearchParams.get('eLocation');
-    const eTime = usesearchParams.get('eTime')
-
-        if(eloc=="theatre1"){
-            return (
-                <div style={{ backgroundColor: "black",  minHeight: "100vh", paddingBottom: 50,}}>
-                    <Navbar />
-                    <Typography 
-                    variant="h4" // Choose a suitable variant like h4 or h5 based on your design
-                    sx={{
-                        fontWeight: 'bold',
-                        fontSize: '2rem',
-                        textAlign: 'center', // Center the heading
-                        color: '#ffa500', // A blue color (Material UI primary color)
-                        marginTop: 3, // Spacing at the top
-                        marginBottom: 2, // Spacing at the bottom
-                        textTransform: 'capitalize', // Capitalizes the event name if needed
-                    }}
-                >
-                    The event name: {usesearchParams.get('name')}
-                </Typography>
-                    <EventBooking  eventType={usesearchParams.get('enum')} eTime={eTime}
-                     eventLocation={usesearchParams.get('eLocation') } ename={usesearchParams.get('name')}/>
-                    
-                </div>
-            );
-        }
-        else{
-            return (
-                <div style={{ backgroundColor: "black",  minHeight: "100vh",paddingBottom: 50,}}>
-                    <Navbar />
-                    <Typography 
-                    variant="h4" // Choose a suitable variant like h4 or h5 based on your design
-                    sx={{
-                        fontWeight: 'bold',
-                        fontSize: '2rem',
-                        textAlign: 'center', // Center the heading
-                        color: '#ffa500', 
-                        marginTop: 3, // Spacing at the top
-                        marginBottom: 2, // Spacing at the bottom
-                        textTransform: 'capitalize',
-                    }}
-                >
-                    The event name: {usesearchParams.get('name')}
-                </Typography>
-                    <EventBooking2  eventType={usesearchParams.get('enum')} eTime={eTime}
-                    eventLocation={usesearchParams.get('eLocation') } ename={usesearchParams.get('name')}/>
-                    
-                </div>
-            );
-        }
-    
-   
+  return (
+    <Suspense fallback={<div style={{ color: 'white', textAlign: 'center', marginTop: '20%' }}>Loading...</div>}>
+      <BookingContent />
+    </Suspense>
+  );
 }
