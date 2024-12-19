@@ -1,0 +1,144 @@
+/* General container to center everything */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Seat map trapezium and individual seats styles */
+.trapezium {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white; /* White background for the trapezium */
+  padding: 30px; /* Padding for some spacing */
+  border-radius: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Seat base styles */
+.seat {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  color: white;
+  position: relative;
+}
+
+.seat:hover {
+  transform: scale(1.1);
+}
+
+/* Available seat styles */
+.available {
+  background-color: #ffa500; /* Orange */
+}
+
+/* Booked seat styles */
+.booked {
+  background-color: #808080; /* Gray */
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Form container styles */
+.formContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  z-index: 1000;
+  color: #333;
+}
+
+/* Form input styles */
+.form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button styles */
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.submitButton,
+.cancelButton {
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 45%;
+}
+
+.submitButton {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+}
+
+.submitButton:hover {
+  background-color: #cc8400;
+}
+
+.cancelButton {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+
+.cancelButton:hover {
+  background-color: #d32f2f;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .seat {
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+  }
+
+  .formContainer {
+      width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .seat {
+      width: 15px;
+      height: 15px;
+      font-size: 8px;
+  }
+
+  .formContainer {
+      width: 230px;
+  }
+}

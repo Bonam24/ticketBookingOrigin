@@ -1,0 +1,30 @@
+[
+    {
+      "title": "Concert in the Park",
+      "description": "Join us for an amazing evening with live music and food trucks!",
+      "imageUrl": "pos1.jpg",
+      "eventLocation": "theatre1",
+      "eventnumber": "event1",
+      "eventDate": "25-12-2024",
+      "eventTime":"8:30pm"
+    },
+    {
+      "title": "Theater Play: Hamlet",
+      "description": "Watch the classic Shakespearean play brought to life on stage.",
+      "imageUrl": "pos2.jpg",
+      "eventLocation": "theatre2",
+      "eventnumber": "event2",
+      "eventDate": "15-12-2024",
+      "eventTime":"7:30pm"
+    },
+    {
+      "title": "Comedy Night",
+      "description": "Enjoy a night filled with laughter from top comedians!",
+      "imageUrl": "pos3.jpg",
+      "eventLocation": "theatre1",
+      "eventnumber": "event2",
+      "eventDate": "15-09-2024",
+      "eventTime":"9:30pm"
+    }
+  ]
+  
